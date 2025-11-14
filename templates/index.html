@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+    <title>Daftar Pasien</title>
+</head>
+<body>
+    <h1>Daftar Pasien</h1>
+    <a href="/tambah">Tambah Pasien</a>
+    <table border="1" cellpadding="5">
+        <tr>
+            <th>ID</th>
+            <th>Nama</th>
+            <th>Umur</th>
+            <th>Aksi</th>
+        </tr>
+        {% for p in pasien %}
+        <tr>
+            <td>{{ p.id }}</td>
+            <td>{{ p.nama }}</td>
+            <td>{{ p.umur }}</td>
+            <td>
+                <a href="/edit/{{ p.id }}">Edit</a>
+                <form action="/hapus/{{ p.id }}" method="POST" style="display:inline;">
+                    <button type="submit">Hapus</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
+
